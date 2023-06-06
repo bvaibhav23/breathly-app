@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "@mui/material";
+import Header from "./components/Header";
+import "./App.css";
+import BottomNav from "./components/BottomNav";
+import { useLocation, Route, Routes } from "react-router-dom";
+import FirstPage from "./Pages/FirstPage";
+import LoginPage from "./Pages/LoginPage";
+import SignupPage from "./Pages/SignupPage";
+import { Home } from "@mui/icons-material";
 
 function App() {
+  const location = useLocation();
+  // console.log(location.pathname);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="ms" disableGutters>
+      {location.pathname !== "/first" &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/signup" && (
+          <>
+            <Header />
+            <BottomNav />
+          </>
+        )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/first" element={<FirstPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+      </Routes>
+    </Container>
   );
 }
 
