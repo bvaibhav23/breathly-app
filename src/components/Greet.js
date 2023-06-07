@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-
+import welcome from "../welcome.jpeg";
 const Greet = () => {
   const [date, setDate] = useState();
   const [greetText, setGreetText] = useState("");
@@ -94,7 +94,7 @@ const Greet = () => {
           </Button>
         </>
       )}
-      <img src="./welcome.jpeg" className="home-img" alt="img"></img>
+      <img src={welcome} className="home-img" alt="img"></img>
     </Box>
   );
 };

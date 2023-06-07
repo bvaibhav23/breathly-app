@@ -14,6 +14,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import Chip from "@mui/material/Chip";
 
 import { useNavigate } from "react-router-dom";
 import SettingComponent from "../components/SettingComponent";
@@ -85,13 +86,12 @@ const Account = () => {
         leftIcon={<ExitToAppOutlinedIcon />}
         rightContent={
           <>
-            <Button
+            <Chip
               onClick={() => handleClickOpen()}
-              sx={{ pt: 0, pb: 0, borderRadius: 3, fontSize: 12 }}
+              label="Unverified"
               color="error"
-              variant="contained">
-              Unverified
-            </Button>
+              size="small"
+            />
             <FormDialog />
           </>
         }

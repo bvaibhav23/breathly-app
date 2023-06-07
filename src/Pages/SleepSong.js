@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { sleep } from "../data/Data";
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import PlaylistAddOutlinedIcon from "@mui/icons-material/PlaylistAddOutlined";
 import AccessAlarmOutlinedIcon from "@mui/icons-material/AccessAlarmOutlined";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
@@ -20,7 +21,18 @@ const SleepSong = () => {
     );
   }, [songid]);
   // console.log(sleep);
-  // console.log("disp", disp);
+  console.log("disp", disp);
+
+  const handleFav = () => {
+    if (sleep[songid - 1].fav) {
+      sleep[songid - 1].fav = false;
+      setDsip({ ...disp, fav: false });
+    } else {
+      sleep[songid - 1].fav = true;
+      setDsip({ ...disp, fav: true });
+    }
+    // console.log(sleep[songid - 1].fav);
+  };
   return (
     <Container
       maxWidth={false}
@@ -31,7 +43,6 @@ const SleepSong = () => {
         flexDirection: "column",
         alignItems: "center",
         height: { xs: 87 + "vh", md: 95 + "vh" },
-
         p: 1,
       }}>
       {disp && (
@@ -65,7 +76,11 @@ const SleepSong = () => {
             sx={{ mt: { md: 3, xs: 5 } }}
             spacing={5}
             alignItems="center">
-            <FavoriteBorderOutlinedIcon />
+            {disp.fav ? (
+              <FavoriteIcon onClick={() => handleFav()} />
+            ) : (
+              <FavoriteBorderOutlinedIcon onClick={() => handleFav()} />
+            )}
             <PlaylistAddOutlinedIcon />
             <AccessAlarmOutlinedIcon />
             <MoreVertOutlinedIcon />

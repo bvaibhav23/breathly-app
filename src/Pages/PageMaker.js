@@ -14,6 +14,7 @@ import AccessAlarmOutlinedIcon from "@mui/icons-material/AccessAlarmOutlined";
 import CardsContainer from "../components/CardsContainer";
 import { useNavigate } from "react-router-dom";
 import MelodyContainer from "../components/MelodyContainer";
+import FavCardContainer from "../components/FavCardContainer";
 
 const PageMaker = ({ title, tabLabels, data }) => {
   const [value, setValue] = React.useState(0);
@@ -77,7 +78,7 @@ const PageMaker = ({ title, tabLabels, data }) => {
           )}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          {` ${tabLabels[1]} Works`}{" "}
+          <FavCardContainer data={data} />
         </TabPanel>
         <TabPanel value={value} index={2}>
           {` ${tabLabels[2]} Works`}{" "}
