@@ -1,32 +1,32 @@
 import { Container, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import data from "../data/Data";
+import { sleep } from "../data/Data";
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import PlaylistAddOutlinedIcon from "@mui/icons-material/PlaylistAddOutlined";
 import AccessAlarmOutlinedIcon from "@mui/icons-material/AccessAlarmOutlined";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
-const SongsPage = () => {
-  const { id } = useParams();
-  // console.log(id, songid);
-  const [disp, setDsip] = useState();
+const SleepSong = () => {
+  const { songid } = useParams();
+  const [disp, setDsip] = useState([]);
   useEffect(() => {
     setDsip(
-      data.find(
+      sleep.find(
         (ele) =>
           // eslint-disable-next-line
-          ele.id == id
+          ele.id == songid
       )
     );
-  }, [id]);
-  //   console.log("disp", disp);
+  }, [songid]);
+  // console.log(sleep);
+  // console.log("disp", disp);
   return (
     <Container
       maxWidth={false}
       sx={{
         background:
-          "linear-gradient(64.3deg,rgba(254,122,152,.81) 17.7%,rgba(255,206,134,1) 64.7%,rgba(172,253,163,.64) 112.1%)",
+          "radial-gradient(circle,rgba(238,174,202,1) 0%,rgba(236,175,203,1) 3%,rgba(233,175,204,1) 6%,rgba(233,175,204,1) 6%,rgba(148,187,233,1) 100%)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -55,9 +55,10 @@ const SongsPage = () => {
             Mr.Vaibhav Bhaskar
           </Typography>
           <Stack mt={5} spacing={5}>
-            {disp.audio.map((a, i) => (
-              <audio key={i + 50} controls src={a}></audio>
-            ))}
+            {disp.audio &&
+              disp.audio.map((a, i) => (
+                <audio key={i + 50} controls src={a}></audio>
+              ))}
           </Stack>
           <Stack
             direction="row"
@@ -75,4 +76,4 @@ const SongsPage = () => {
   );
 };
 
-export default SongsPage;
+export default SleepSong;

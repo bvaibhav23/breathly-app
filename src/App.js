@@ -6,7 +6,7 @@ import { useLocation, Route, Routes } from "react-router-dom";
 import FirstPage from "./Pages/FirstPage";
 import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
-import { Home } from "@mui/icons-material";
+import Home from "./Pages/Home";
 
 function App() {
   const location = useLocation();

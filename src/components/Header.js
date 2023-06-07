@@ -26,6 +26,7 @@ import SongsPage from "../Pages/SongsPage";
 import Melodies from "../Pages/Melodies";
 import Account from "../Pages/Account";
 import Subscription from "../Pages/Subscription";
+import SleepSong from "../Pages/SleepSong";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -168,6 +169,7 @@ function Header() {
         <Route path="/sleep" element={<Sleep />} />
         <Route path="/setting" element={<Setting />} />
         <Route path={`/songs/:id`} element={<SongsPage />} />
+        <Route path={`/sleepsongs/:songid`} element={<SleepSong />} />
         <Route path="/melodies" element={<Melodies />} />
         <Route path="/account" element={<Account />} />
         <Route path="/subscription" element={<Subscription />} />

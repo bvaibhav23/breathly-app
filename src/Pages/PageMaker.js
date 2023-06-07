@@ -18,9 +18,9 @@ import MelodyContainer from "../components/MelodyContainer";
 const PageMaker = ({ title, tabLabels, data }) => {
   const [value, setValue] = React.useState(0);
   const navTo = useNavigate();
-  console.log(data);
+  // console.log(data);
   const handleChange = (newValue) => {
-    console.log(newValue.target.id[11]);
+    // console.log(newValue.target.id[11]);
     setValue(Number(newValue.target.id[11]));
   };
   return (

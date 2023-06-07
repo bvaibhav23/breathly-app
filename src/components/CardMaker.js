@@ -4,15 +4,17 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function DisplayCard({ ele }) {
   const navTo = useNavigate();
+  const location = useLocation();
+
   return (
     <>
       {ele && (
         <Card
-          onClick={() => console.log("card", ele)}
+          // onClick={() => console.log("card", ele)}
           sx={{
             m: 1,
             width: {
@@ -23,7 +25,14 @@ export default function DisplayCard({ ele }) {
             },
             height: { xs: 16 + "rem", md: 12 + "rem", lg: 15 + "rem" },
           }}>
-          <CardActionArea onClick={() => navTo(`/songs/${ele.id}`, true)}>
+          <CardActionArea
+            onClick={() => {
+              location.pathname === "/" ||
+              location.pathname === "/meditation" ||
+              location.pathname === "/relax"
+                ? navTo(`/songs/${ele.id}`, true)
+                : navTo(`/sleepsongs/${ele.id}`, true);
+            }}>
             <CardMedia
               component="img"
               height="140"
