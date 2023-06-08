@@ -49,7 +49,7 @@ function a11yProps(index) {
 export default function Subscription() {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
   const navTo = useNavigate();
